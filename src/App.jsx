@@ -1,8 +1,10 @@
 // import Button from "./Components/task-29/Button"
 // import ShowDate from "./Components/task-29/showDate"
 
+import ClassCart from "./Components/classBased/ClassCart"
+
 // import MyComponent from "./Components/classBased/Class"
-import Basic from "./Components/forms/forms"
+// import Basic from "./Components/forms/forms"
 
 
 const App = ()=>{
@@ -79,8 +81,8 @@ const App = ()=>{
       {/* <ShowDate day={getDay(new Date().getDay())} timing={getGreeting(new Date().getHours())} month={gettingMonth(new Date().getMonth())}/>
       <Button/> */}
       {/* <MyComponent/> */}
-      <Basic/>
-
+      {/* <Basic/> */}
+      <ClassCart/>
     </div>
   )
 }
