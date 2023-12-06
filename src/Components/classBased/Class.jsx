@@ -31,6 +31,7 @@ class MyComponent extends React.Component {
           gender: "Male",
         },
       ],
+      newImage:"https://images.unsplash.com/photo-1517329782449-810562a4ec2f?q=80&w=2063&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     };
   }
 
@@ -51,6 +52,11 @@ class MyComponent extends React.Component {
       currentIndex: (prevState.currentIndex + 1) % prevState.images.length,
     }));
   };
+  addImage = (image) => {
+    this.setState((prevState) => ({
+      images: prevState.images.concat(image),
+    }))
+  }
 
   render() {
     return (
@@ -80,12 +86,15 @@ class MyComponent extends React.Component {
             </button>
           </div>
         </div>
+        <button onClick={() => this.addImage(this.state.newImage)} className="border-2 border-sky-300 m-4 bg-slate-500 text-white p-2 rounded-md ml-[590px]">Click to Add</button>
         <button
           onClick={this.handleClick}
-          className="border-2 border-sky-300 m-4 bg-slate-500 text-white p-2 rounded-md ml-[560px]"
+          className="border-2 border-sky-300 m-4 bg-slate-500 text-white p-2 rounded-md ml-[570px]"
         >
           {this.state.isSubscribed ? this.state.text2 : this.state.text1}
         </button>
+
+
         <div>
           <h1 className="flex justify-between ">
             {this.state.employees.map((val, ind) => (
