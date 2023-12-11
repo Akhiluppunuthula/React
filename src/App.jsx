@@ -1,9 +1,15 @@
 // import Button from "./Components/task-29/Button"
 // import ShowDate from "./Components/task-29/showDate"
 
+import CricleUse from "./Components/useState1/CricleUse"
+
+// import TimerUse from "./Components/useState1/TimerUse"
+
+// import Timer from "./Components/classBased/Timer"
+
 // import ClassCart from "./Components/classBased/ClassCart"
 
-import MyComponent from "./Components/classBased/Class"
+// import MyComponent from "./Components/classBased/Class"
 // import Basic from "./Components/forms/forms"
 
 
@@ -80,9 +86,12 @@ const App = ()=>{
     <div>
       {/* <ShowDate day={getDay(new Date().getDay())} timing={getGreeting(new Date().getHours())} month={gettingMonth(new Date().getMonth())}/>
       <Button/> */}
-      <MyComponent/>
+      {/* <MyComponent/> */}
       {/* <Basic/> */}
       {/* <ClassCart/> */}
+      {/* <Timer/> */}
+      {/* <TimerUse/> */}
+      <CricleUse/>
      
     </div>
   )
