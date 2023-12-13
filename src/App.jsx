@@ -1,7 +1,12 @@
 // import Button from "./Components/task-29/Button"
 // import ShowDate from "./Components/task-29/showDate"
 
-import CricleUse from "./Components/useState1/CricleUse"
+import Routing from "./Components/Routing/Routing"
+// import TodoList from "./Components/Todolist/list"
+
+// import Uncontrolled from "./Components/forms/Uncontrolled"
+
+// import CricleUse from "./Components/useState1/CricleUse"
 
 // import TimerUse from "./Components/useState1/TimerUse"
 
@@ -91,8 +96,10 @@ const App = ()=>{
       {/* <ClassCart/> */}
       {/* <Timer/> */}
       {/* <TimerUse/> */}
-      <CricleUse/>
-     
+      {/* <CricleUse/> */}
+      {/* <Uncontrolled/> */}
+      {/* <TodoList/> */}
+      <Routing/>
     </div>
   )
 }
