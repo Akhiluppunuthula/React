@@ -1,5 +1,5 @@
 
-
+import { Link } from "react-router-dom"
 const ForgetScreen = () => {
   return (
     <div>
@@ -8,7 +8,7 @@ const ForgetScreen = () => {
         <img src="" alt="image" />
       </div>
       <div>
-
+      <Link to="/" className='border-2 rounded-md '>Home</Link>
       </div>
     </div>
   )

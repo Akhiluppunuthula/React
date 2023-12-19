@@ -1,6 +1,8 @@
+import axios from "axios";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link, useNavigate } from "react-router-dom";
 
 function RegisterScreen() {
   const [userName, setUserName] = useState("");
@@ -11,6 +13,7 @@ function RegisterScreen() {
   const [passwordError, setPasswordError] = useState("");
   const [cPass, setCPass] = useState("");
   const [cPassError, setCPassError] = useState("");
+  const navigate = useNavigate();
 
   const handleUserName = (event) => {
     const value = event.target.value;
@@ -68,9 +71,19 @@ function RegisterScreen() {
     const details = {
       userName: userName,
       password: password,
+      cPassword: cPass,
+      email: email,
     };
-    console.log(details);
-
+    try {
+      axios.post("http://localhost:3000/posts", details);
+      {
+        alert("User Registration Success");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Error registering user:", error);
+      alert("An error occurred. Please try again.");
+    }
     setUserName("");
     setUserNameError("");
     setEmail("");
@@ -100,7 +113,7 @@ function RegisterScreen() {
             <Form.Control
               type="text"
               placeholder="UserName"
-              className="border-2  rounded-md px-16 py-2 my-2"
+              className="border-2  rounded-md px-16 py-2 my-2 text-black"
               value={userName}
               onChange={handleUserName}
             />
@@ -110,7 +123,7 @@ function RegisterScreen() {
             <Form.Control
               type="email"
               placeholder="Email Address"
-              className="border-2  rounded-md px-16 py-2 my-2"
+              className="border-2  rounded-md px-16 py-2 my-2 text-black"
               value={email}
               onChange={handleEmail}
             />
@@ -120,7 +133,7 @@ function RegisterScreen() {
             <Form.Control
               type="password"
               placeholder="Password"
-              className="border-2  rounded-md px-16 py-2 my-2"
+              className="border-2  rounded-md px-16 py-2 my-2 text-black"
               value={password}
               onChange={handlePassword}
             />
@@ -130,7 +143,7 @@ function RegisterScreen() {
             <Form.Control
               type="password"
               placeholder="ConfirmPassword"
-              className="border-2  rounded-md px-16 py-2 my-2"
+              className="border-2  rounded-md px-16 py-2 my-2 text-black"
               value={cPass}
               onChange={handleCPassword}
             />
@@ -144,6 +157,14 @@ function RegisterScreen() {
             >
               Submit
             </Button>
+          </div>
+          <div className="flex justify-center  mt-2">
+            <Link
+              to="/"
+              className="border rounded-md px-4 py-2 bg-[#E50914] font-medium"
+            >
+              Sign In
+            </Link>
           </div>
         </Form>
       </div>
