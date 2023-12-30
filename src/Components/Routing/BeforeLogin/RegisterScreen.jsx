@@ -1,10 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { LoginInfo } from "../NavigationStack/Routing";
 
 function RegisterScreen() {
+
+  const loginDetails = useContext(LoginInfo)
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +16,7 @@ function RegisterScreen() {
   const [passwordError, setPasswordError] = useState("");
   const [cPass, setCPass] = useState("");
   const [cPassError, setCPassError] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleUserName = (event) => {
     const value = event.target.value;
@@ -78,7 +81,8 @@ function RegisterScreen() {
       axios.post("http://localhost:3000/posts", details);
       {
         alert("User Registration Success");
-        navigate("/login");
+        // navigate("/login");
+        loginDetails.singIn()
       }
     } catch (error) {
       console.error("Error registering user:", error);
